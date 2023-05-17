@@ -3,7 +3,21 @@ import { House } from "../models/House.js";
 import { api } from "./AxiosService.js";
 
 class HousesService{
-  async CreateHouse(formData) {
+  async editHouse(formData,id) {
+      const res = await api.put('api/houses', formData)
+      console.log('returned data -->', res.data)
+      // Find the house to update in AppState.houses
+      // const houseToUpdate = AppState.houses.findIndex(h => h.id === formData.id);
+      // AppState.houses[houseToUpdate] = res.data;
+      // AppState.emit('houses')
+    }
+
+  async deleteHouse(id){
+    const res = await api.delete(`api/houses/${id}`)
+    console.log("Did the house get removed?", res.data)
+    AppState.houses = AppState.houses.filter(h=> h.id != id)
+  }
+  async createHouse(formData) {
     const res = await api.post('api/houses', formData)
     console.log('returned data -->', res.data)
     const newHouse = new House (res.data)
