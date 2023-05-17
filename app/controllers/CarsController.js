@@ -51,8 +51,10 @@ export class CarsController {
   async createCar() {
     try {
       // we are submitting a form.... 
+      // @ts-ignore
       window.event.preventDefault()
       // 🛩️ target acquired
+      // @ts-ignore
       const form = window.event.target
       // how do we extract the data from the form?
       const formData = getFormData(form)
