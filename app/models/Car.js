@@ -55,7 +55,7 @@ export class Car {
     return /*html*/`
     <button 
       class="btn btn-danger" 
-      onclick="app.CarsController.deleteCar('${this.id}')"
+      onclick=touch"app.CarsController.deleteCar('${this.id}')"
     >💀</button>`
 
   }
